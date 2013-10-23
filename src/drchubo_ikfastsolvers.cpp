@@ -18,6 +18,8 @@
 
 namespace drchubo_leftarm_ikfast { IkSolverBasePtr CreateIkSolver(EnvironmentBasePtr, std::istream& sinput, const std::vector<dReal>&vfreeinc); }
 namespace drchubo_rightarm_ikfast { IkSolverBasePtr CreateIkSolver(EnvironmentBasePtr, std::istream& sinput, const std::vector<dReal>&vfreeinc); }
+namespace drchubo_leftleg_ikfast { IkSolverBasePtr CreateIkSolver(EnvironmentBasePtr, std::istream& sinput, const std::vector<dReal>&vfreeinc); }
+namespace drchubo_rightleg_ikfast { IkSolverBasePtr CreateIkSolver(EnvironmentBasePtr, std::istream& sinput, const std::vector<dReal>&vfreeinc); }
 
 IkSolverBasePtr CreateIkSolverFromName(const string& _name, const std::vector<dReal>& vfreeinc, EnvironmentBasePtr penv);
 ModuleBasePtr CreateIkFastModule(EnvironmentBasePtr penv, std::istream& sinput);
@@ -47,6 +49,12 @@ InterfaceBasePtr CreateInterfaceValidated(InterfaceType type, const std::string&
             else if( interfacename == "drchubo_rightarm_ikfast" ) {
                 return drchubo_rightarm_ikfast::CreateIkSolver(penv, sinput, vfreeinc);
             }
+            else if( interfacename == "drchubo_leftleg_ikfast" ) {
+                return drchubo_leftleg_ikfast::CreateIkSolver(penv, sinput, vfreeinc);
+            }
+            else if( interfacename == "drchubo_rightleg_ikfast" ) {
+                return drchubo_rightleg_ikfast::CreateIkSolver(penv, sinput, vfreeinc);
+            }
         }
         break;
     }
@@ -66,6 +74,8 @@ void GetPluginAttributesValidated(PLUGININFO& info)
 {
     info.interfacenames[PT_IkSolver].push_back("drchubo_leftarm_ikfast");
     info.interfacenames[PT_IkSolver].push_back("drchubo_rightarm_ikfast");
+    info.interfacenames[PT_IkSolver].push_back("drchubo_leftleg_ikfast");
+    info.interfacenames[PT_IkSolver].push_back("drchubo_rightleg_ikfast");
 }
 
 OPENRAVE_PLUGIN_API void DestroyPlugin()
