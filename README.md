@@ -60,12 +60,14 @@ Next, you need to edit the `drchubo_v3.robot.xml` model to use the new IK solver
         <base>Body_TSY</base>
         <effector>leftFoot</effector>
         <direction>0 0 -1</direction>
+        <iksolver>drchubo_leftleg_ikfast</iksolver>
     </Manipulator>
 
     <Manipulator name="rightFoot">
         <base>Body_TSY</base>
         <effector>rightFoot</effector>
         <direction>0 0 -1</direction>
+        <iksolver>drchubo_rightleg_ikfast</iksolver>
     </Manipulator>
 
     <Manipulator name="Head">
