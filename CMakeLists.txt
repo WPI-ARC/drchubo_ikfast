@@ -17,7 +17,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/plugins)
 include_directories(include ${catkin_INCLUDE_DIRS} ${OpenRAVE_INCLUDE_DIRS})
 link_directories(${OpenRAVE_LIBRARY_DIRS})
 ## Declare a cpp library
-add_library(${PROJECT_NAME} SHARED src/drchubo_ikfastsolvers.cpp src/drchubo_ikfastmodule.cpp src/drchubo_ikfastsolver.cpp src/plugindefs.h src/ikfast.h src/drchubo_leftArm_ikfast.cpp src/drchubo_rightArm_ikfast.cpp src/drchubo_leftLeg_ikfast.cpp src/drchubo_rightLeg_ikfast.cpp)
+add_library(${PROJECT_NAME} SHARED src/drchubo_ikfastsolvers.cpp src/drchubo_ikfastmodule.cpp src/drchubo_ikfastsolver.cpp src/plugindefs.h src/ikfast.h src/drchubo_leftArm_ikfast.cpp src/drchubo_rightArm_ikfast.cpp src/drchubo_leftLeg_ikfast.cpp src/drchubo_rightLeg_ikfast.cpp src/drchubo_leftPeg_ikfast.cpp src/drchubo_rightPeg_ikfast.cpp)
 set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS "${PLUGIN_COMPILE_FLAGS}" LINK_FLAGS "${PLUGIN_LINK_FLAGS}")
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${OpenRAVE_LIBRARIES})
 add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})

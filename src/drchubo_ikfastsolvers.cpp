@@ -20,6 +20,8 @@ namespace drchubo_leftarm_ikfast { IkSolverBasePtr CreateIkSolver(EnvironmentBas
 namespace drchubo_rightarm_ikfast { IkSolverBasePtr CreateIkSolver(EnvironmentBasePtr, std::istream& sinput, const std::vector<dReal>&vfreeinc); }
 namespace drchubo_leftleg_ikfast { IkSolverBasePtr CreateIkSolver(EnvironmentBasePtr, std::istream& sinput, const std::vector<dReal>&vfreeinc); }
 namespace drchubo_rightleg_ikfast { IkSolverBasePtr CreateIkSolver(EnvironmentBasePtr, std::istream& sinput, const std::vector<dReal>&vfreeinc); }
+namespace drchubo_leftpeg_ikfast { IkSolverBasePtr CreateIkSolver(EnvironmentBasePtr, std::istream& sinput, const std::vector<dReal>&vfreeinc); }
+namespace drchubo_rightpeg_ikfast { IkSolverBasePtr CreateIkSolver(EnvironmentBasePtr, std::istream& sinput, const std::vector<dReal>&vfreeinc); }
 
 IkSolverBasePtr CreateIkSolverFromName(const string& _name, const std::vector<dReal>& vfreeinc, EnvironmentBasePtr penv);
 ModuleBasePtr CreateIkFastModule(EnvironmentBasePtr penv, std::istream& sinput);
@@ -55,6 +57,12 @@ InterfaceBasePtr CreateInterfaceValidated(InterfaceType type, const std::string&
             else if( interfacename == "drchubo_rightleg_ikfast" ) {
                 return drchubo_rightleg_ikfast::CreateIkSolver(penv, sinput, vfreeinc);
             }
+            else if( interfacename == "drchubo_leftpeg_ikfast" ) {
+                return drchubo_leftpeg_ikfast::CreateIkSolver(penv, sinput, vfreeinc);
+            }
+            else if( interfacename == "drchubo_rightpeg_ikfast" ) {
+                return drchubo_rightpeg_ikfast::CreateIkSolver(penv, sinput, vfreeinc);
+            }
         }
         break;
     }
@@ -76,6 +84,8 @@ void GetPluginAttributesValidated(PLUGININFO& info)
     info.interfacenames[PT_IkSolver].push_back("drchubo_rightarm_ikfast");
     info.interfacenames[PT_IkSolver].push_back("drchubo_leftleg_ikfast");
     info.interfacenames[PT_IkSolver].push_back("drchubo_rightleg_ikfast");
+    info.interfacenames[PT_IkSolver].push_back("drchubo_leftpeg_ikfast");
+    info.interfacenames[PT_IkSolver].push_back("drchubo_rightpeg_ikfast");
 }
 
 OPENRAVE_PLUGIN_API void DestroyPlugin()
